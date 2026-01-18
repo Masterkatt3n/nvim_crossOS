@@ -9,10 +9,8 @@ return {
       ensure_installed = {
         "prettier",
         "eslint_d",
-        "hadolint",
         "shellcheck",
         "shfmt",
-        "csharpier",
         "xmlformatter",
         -- "stylua",
       },

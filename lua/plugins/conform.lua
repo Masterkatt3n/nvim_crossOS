@@ -55,7 +55,6 @@ return {
     opts.formatters_by_ft.bash = { "shfmt" }
     opts.formatters_by_ft.lua = { "stylua" }
     opts.formatters_by_ft.python = { "ruff_fix", "ruff_format", "ruff_organize_imports" }
-    opts.formatters_by_ft.cs = { "csharpier" }
     opts.formatters_by_ft.xml = { "xmlformat" }
     opts.formatters_by_ft.fish = {}
 

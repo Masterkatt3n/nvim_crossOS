@@ -13,7 +13,6 @@ return {
     lint.linters_by_ft = {
       sh = { "shellcheck" },
       bash = { "shellcheck" },
-      dockerfile = { "hadolint" },
     }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

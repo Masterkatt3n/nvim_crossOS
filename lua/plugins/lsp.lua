@@ -45,7 +45,6 @@ return {
           },
         },
       },
-      dockerls = with_defaults(),
       jsonls = with_defaults(),
       yamlls = with_defaults { filetypes = { "yaml" } },
       taplo = with_defaults { cmd_env = { RUST_LOG = "error" } },
