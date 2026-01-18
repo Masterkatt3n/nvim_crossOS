@@ -1,0 +1,27 @@
+# Neovim temporary/backup/swap/session files
+*.swp
+*.swo
+*.swn
+*.bak
+*.log
+*.session.json
+*.json
+*jsonc
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+
+# Compiled Lua
+*.luac
+
+# Node.js package junk (for plugins like copilot.vim etc.)
+node_modules/
+
+# Lua package managers (if experimenting)
+*luarocks*
+*hererocks*

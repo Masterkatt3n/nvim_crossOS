@@ -1,0 +1,13 @@
+---@class LazyPluginSpec
+---@field name? string
+---@field dir? string
+---@field event? string|string[]
+---@field ft? string|string[]
+---@field cmd? string|string[]
+---@field keys? table
+---@field dependencies? LazyPluginSpec[]
+---@field opts? table|fun(...)
+---@field config? fun(...)
+---@field init? fun(...)
+---@field enabled? boolean
+---@field cond? boolean|fun()
