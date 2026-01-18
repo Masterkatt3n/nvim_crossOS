@@ -1,7 +1,6 @@
 -- "~/.config/nvim/lua/plugins/colorscheme.lua"
 return {
   "navarasu/onedark.nvim",
-  -- "tiagovla/tokyodark.nvim",
   lazy = false,
   priority = 1000,
   config = function()
@@ -14,6 +13,3 @@ return {
     require("onedark").load()
   end,
 }
---     vim.cmd.colorscheme "tokyodark"
---   end,
--- }

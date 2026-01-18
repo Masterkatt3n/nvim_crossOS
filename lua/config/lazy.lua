@@ -37,7 +37,7 @@ require("lazy").setup {
   install = { colorscheme = {} },
   checker = {
     enabled = true, -- check for plugin updates periodically
-    notify = true, -- notify on update
+    notify = false, -- notify on update
   },
   hererocks = false,
   rocks = { enabled = false },
