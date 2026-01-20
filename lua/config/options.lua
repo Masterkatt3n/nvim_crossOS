@@ -57,19 +57,20 @@ o.ruler = true
 o.inccommand = "split"
 
 -- Performance
-o.ttimeoutlen = is_win and 0 or 25
+o.ttimeoutlen = is_win and 0 or 25 -- If something funky happens on startup in linux, like a key getting "hit".. try raise the value
 o.updatetime = 300
 
--- Shell
-if is_win then
-  o.shell = "pwsh.exe"
-  o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command $PSStyle.OutputRendering = 'PlainText';"
-  o.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-  o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-  o.shellquote = ""
-  o.shellxquote = ""
-end
+-- Shell -- If you need to force Windows into running whichever, these works
+--if is_win then
+--  o.shell = "pwsh.exe"
+--  o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command $PSStyle.OutputRendering = 'PlainText';"
+--  o.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+--  o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+--  o.shellquote = ""
+--  o.shellxquote = ""
+--end
 -- o.shell = "cmd.exe"
 -- o.shellcmdflag = "/s /c"
 -- o.shellquote = '"'
 -- o.shellxquote = '"'
+-- end

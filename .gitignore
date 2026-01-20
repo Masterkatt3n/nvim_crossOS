@@ -6,7 +6,7 @@
 *.log
 *.session.json
 *.json
-*jsonc
+*.jsonc
 tt.*
 .tests
 doc/tags
