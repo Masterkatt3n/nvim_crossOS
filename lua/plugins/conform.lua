@@ -1,7 +1,6 @@
 -- "~/.config/nvim/lua/plugins/conform.lua"
-local stylua_cargo = vim.fn.expand "$HOME/.cargo/bin/stylua"
-local stylua_mason = vim.fn.expand "$HOME/.local/share/nvim-data/mason/packages/stylua/stylua"
-
+local stylua_cargo = vim.fn.expand("$HOME/.cargo/bin/stylua")
+local stylua_mason = vim.fn.expand("$HOME/.local/share/nvim-data/mason/packages/stylua/stylua")
 local Stylua
 if vim.fn.executable(stylua_cargo) == 1 then
   Stylua = stylua_cargo
@@ -14,6 +13,7 @@ elseif vim.fn.executable(stylua_mason .. ".cmd") == 1 then
 else
   Stylua = "stylua"
 end
+
 ---@type LazyPluginSpec
 return {
   "stevearc/conform.nvim",
@@ -57,7 +57,6 @@ return {
     opts.formatters_by_ft.python = { "ruff_fix", "ruff_format", "ruff_organize_imports" }
     opts.formatters_by_ft.xml = { "xmlformat" }
     opts.formatters_by_ft.fish = {}
-
     opts.formatters_by_ft.powershell = { "powershell" }
     opts.formatters_by_ft.ps1 = { "powershell" }
     opts.formatters_by_ft.psm1 = { "powershell" }
@@ -67,11 +66,11 @@ return {
     {
       "<leader>f",
       function()
-        require("conform").format {
+        require("conform").format({
           lsp_fallback = true,
           async = false,
           timeout_ms = 5000,
-        }
+        })
       end,
       mode = { "n", "v" },
       desc = "Format file or range (in visual mode)",

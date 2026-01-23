@@ -4,12 +4,12 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    require("onedark").setup {
+    require("onedark").setup({
       style = "darker",
       colors = {
         bg0 = "#11121d", --Optional. Same background "black" as tokyodark
       },
-    }
+    })
     require("onedark").load()
   end,
 }

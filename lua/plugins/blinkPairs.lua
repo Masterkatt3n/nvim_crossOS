@@ -3,9 +3,11 @@ return {
   "saghen/blink.pairs",
   event = "InsertEnter",
   build = "cargo build --release",
-  version = "*",
+  -- uncomment deps to fetch binaries(..and comment out the build line)
+  --  dependencies = "saghen/blink.download",
+  version = "*", -- only required with prebuilt binaries
 
-  --- @module 'blink.pairs'
+  --- @module "blink.pairs"
   --- @type blink.pairs.Config
   opts = {
     mappings = {

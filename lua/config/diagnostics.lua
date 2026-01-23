@@ -7,7 +7,7 @@ for type, icon in pairs(signs) do
 end
 
 -- Diagnostic config
-vim.diagnostic.config {
+vim.diagnostic.config({
   virtual_text = {
     spacing = 6,
     prefix = "⚠️ ",
@@ -24,7 +24,7 @@ vim.diagnostic.config {
   underline = true,
   update_in_insert = false,
   severity_sort = true,
-}
+})
 
 -- Keymap for line diagnostics
 vim.keymap.set("n", "<leader>d", function()

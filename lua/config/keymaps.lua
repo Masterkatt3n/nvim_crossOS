@@ -6,6 +6,24 @@ local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+-- Clipboard
+map("v", "<C-c>", '"+y')
+vim.keymap.set("i", "<C-v>", function()
+  local old = vim.opt.formatoptions:get()
+  vim.opt.formatoptions:remove({ "c", "r", "o" })
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-r>+", true, true, true), "n", false)
+  vim.opt.formatoptions = old
+end, { desc = "Paste without comment continuation" })
+
+-- Manual lint and formatting
+vim.keymap.set("n", "<leader>lf", function()
+  require("conform").format({ async = true })
+end, { desc = "Format current file" })
+
+vim.keymap.set("n", "<leader>ll", function()
+  require("lint").try_lint()
+end, { desc = "Lint current file" })
+
 -- Save / quit
 map("n", "<leader>w", "<CMD>update<CR>")
 map("n", "<leader>q", "<CMD>q<CR>")
@@ -46,26 +64,3 @@ map("n", "<C-Down>", "<C-w>-")
 -- Scroll faster
 map({ "n", "v" }, "K", "5k", { desc = "Up faster" })
 map({ "n", "v" }, "J", "5j", { desc = "Down faster" })
-
--- Clipboard
-map("v", "<C-c>", '"+y')
-vim.keymap.set("i", "<C-v>", function()
-  local old = vim.opt.formatoptions:get()
-  vim.opt.formatoptions:remove { "c", "r", "o" }
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-r>+", true, true, true), "n", false)
-  vim.opt.formatoptions = old
-end, { desc = "Paste without comment continuation" })
-
--- IncRename
-vim.keymap.set("n", "<leader>rn", function()
-  return ":IncRename " .. vim.fn.expand "<cword>"
-end, { expr = true })
-
--- Manual lint and formatting
-vim.keymap.set("n", "<leader>lf", function()
-  require("conform").format { async = true }
-end, { desc = "Format current file" })
-
-vim.keymap.set("n", "<leader>ll", function()
-  require("lint").try_lint()
-end, { desc = "Lint current file" })

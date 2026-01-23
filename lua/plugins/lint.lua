@@ -1,6 +1,7 @@
 -- ~/.config/nvim/lua/plugins/lint.lua
 ---@type string[]
 local ft_all = require("config.ftypes.filetypes").all
+local lint = require("lint")
 
 return {
   "mfussenegger/nvim-lint",
@@ -8,8 +9,6 @@ return {
   ---@type LazyPluginSpec
   event = { "BufReadPre", "BufWritePost" },
   config = function()
-    local lint = require "lint"
-
     lint.linters_by_ft = {
       sh = { "shellcheck" },
       bash = { "shellcheck" },

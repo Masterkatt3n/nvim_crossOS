@@ -1,5 +1,6 @@
 -- ~/.config/nvim/lua/config/options.lua
-local is_win = vim.fn.has "win32" == 1
+local is_win = vim.fn.has("win32") == 1
+local o = vim.opt
 
 vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 
@@ -8,8 +9,6 @@ vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
 -- vim.lsp.set_log_level "OFF"
 
 -- vim.opt.display:append("msgsep") -- keep lines in buffers within visible area
-
-local o = vim.opt
 
 -- Line numbering
 o.number = true

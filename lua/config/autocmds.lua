@@ -15,23 +15,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
--- vim.api.nvim_create_user_command("LspCaps", function()
---   local clients = vim.lsp.get_clients { bufnr = 0 }
---   if #clients == 0 then
---     print "No active LSP clients."
---     return
---   end
---
---   for _, client in ipairs(clients) do
---     print("== " .. client.name .. " ==")
---     print(vim.inspect(client.server_capabilities))
---   end
--- end, {})
+vim.api.nvim_create_user_command("LspCaps", function()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  if #clients == 0 then
+    print("No active LSP clients.")
+    return
+  end
+
+  for _, client in ipairs(clients) do
+    print("== " .. client.name .. " ==")
+    print(vim.inspect(client.server_capabilities))
+  end
+end, {})
 
 vim.api.nvim_create_user_command("LspSem", function()
-  local clients = vim.lsp.get_clients { bufnr = 0 }
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
   if #clients == 0 then
-    print "No active LSP clients."
+    print("No active LSP clients.")
     return
   end
 

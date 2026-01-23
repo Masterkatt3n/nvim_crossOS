@@ -13,7 +13,7 @@ return {
     ---@class PluginLspOpts
     opts = {
       servers = {
-        lua_ls = with_defaults {
+        lua_ls = with_defaults({
           settings = {
             Lua = {
               runtime = { version = "LuaJIT" },
@@ -24,7 +24,7 @@ return {
                 checkThirdParty = false,
                 library = {
                   vim.env.VIMRUNTIME,
-                  vim.fn.stdpath "config" .. "/lua/types",
+                  vim.fn.stdpath("config") .. "/lua/types",
                   "${3rd}/luv/library",
                   "${3rd}/busted/library",
                 },
@@ -47,7 +47,7 @@ return {
               format = { enable = false },
             },
           },
-        },
+        }),
       },
     },
   },

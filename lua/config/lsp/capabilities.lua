@@ -25,10 +25,7 @@ function M.get()
       -- fallback for older versions
       capabilities = blink_cmp.add_capabilities(capabilities)
     else
-      vim.notify(
-        "blink.cmp found but doesn't expose capability helpers",
-        vim.log.levels.WARN
-      )
+      vim.notify("blink.cmp found but doesn't expose capability helpers", vim.log.levels.WARN)
     end
   end
 

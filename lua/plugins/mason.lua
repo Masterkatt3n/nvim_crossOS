@@ -5,17 +5,18 @@ return {
   event = "LspAttach",
   config = function()
     require("mason").setup()
-    require("mason-tool-installer").setup {
+    require("mason-tool-installer").setup({
       ensure_installed = {
         "prettier",
         "eslint_d",
         "shellcheck",
         "shfmt",
         "xmlformatter",
-        -- "stylua",
+        -- "tree-sitter-cli", -- If not local, uncomment
+        -- "stylua", -- ..same thing for this one
       },
       auto_update = false,
       run_on_start = true,
-    }
+    })
   end,
 }
