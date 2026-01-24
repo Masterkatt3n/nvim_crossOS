@@ -8,8 +8,9 @@ function M.setup(client, bufnr)
   -- Attach blink.cmp only if it's installed and the client supports semantic tokens
   local has_semantic = client.server_capabilities.semanticTokensProvider
   local ok_blink, blink_cmp = pcall(require, "blink.cmp")
-
+  ---@diagnostic disable-next-line: undefined-field
   if ok_blink and has_semantic and blink_cmp.attach then
+    ---@diagnostic disable-next-line: undefined-field
     blink_cmp.attach(bufnr)
   end
 

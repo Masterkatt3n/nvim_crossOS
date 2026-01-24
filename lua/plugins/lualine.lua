@@ -1,6 +1,6 @@
 -- "\.config\nvim\lua\plugins\lualine.lua"
----@type LazyPluginSpec
 return {
+  ---@type LazyPluginSpec
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   dependencies = { "tiagovla/tokyodark.nvim" },

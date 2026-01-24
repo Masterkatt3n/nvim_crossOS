@@ -3,7 +3,6 @@ local is_win = vim.fn.has("win32") == 1
 local is_unix = vim.fn.has("unix") == 1
 
 local py_host
-
 if is_win then
   py_host = vim.fn.expand("$HOME/AppData/Local/Programs/Python/Python313/python.exe")
 elseif is_unix then

@@ -21,9 +21,10 @@ function M.get()
   elseif ok_blink and blink_cmp then
     if blink_cmp.get_lsp_capabilities then
       capabilities = blink_cmp.get_lsp_capabilities(capabilities)
+      ---@diagnostic disable-next-line: undefined-field
     elseif blink_cmp.add_capabilities then
-      -- fallback for older versions
-      capabilities = blink_cmp.add_capabilities(capabilities)
+      ---@diagnostic disable-next-line: undefined-field
+      capabilities = blink_cmp.add_capabilities(capabilities) -- fallback for older versions
     else
       vim.notify("blink.cmp found but doesn't expose capability helpers", vim.log.levels.WARN)
     end

@@ -1,6 +1,5 @@
 -- lua/plugins/treesitter.lua
 vim.g.tree_sitter_cli_install_path = vim.fn.exepath("tree-sitter")
----@type LazySpec
 return {
   {
     "nvim-treesitter/nvim-treesitter",
