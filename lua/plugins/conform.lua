@@ -1,6 +1,9 @@
 -- "~/.config/nvim/lua/plugins/conform.lua"
-local stylua_cargo = vim.fn.expand("$HOME/.cargo/bin/stylua")
-local stylua_mason = vim.fn.expand("$HOME/.local/share/nvim-data/mason/packages/stylua/stylua")
+local data_path = vim.fn.stdpath("data")
+local home = vim.fn.expand("HOME")
+
+local stylua_cargo = home .. "/.cargo/bin/stylua"
+local stylua_mason = data_path .. "/mason/packages/stylua/stylua"
 local Stylua
 if vim.fn.executable(stylua_cargo) == 1 then
   Stylua = stylua_cargo

@@ -38,14 +38,15 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = {} },
+  install = { colorscheme = { "onedark" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
   },
-  hererocks = false,
-  rocks = { enabled = false },
+  hererocks = false, -- comment out if using hererocks
+  rocks = { enabled = false }, -- comment out if using luarocks
   performance = {
+    reset_packpath = true,
     rtp = {
       disabled_plugins = {
         "gzip",

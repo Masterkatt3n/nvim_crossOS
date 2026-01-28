@@ -2,19 +2,14 @@
 local with_defaults = require("config.lsp.helpers").with_defaults
 ---@type string[]
 local ft_all = require("config.ftypes.filetypes").all
-
-local is_win = vim.fn.has("win32") == 1
+local data_path = vim.fn.stdpath("data")
 
 local bundlepath
-if is_win then
-  bundlepath = vim.fn.expand("$HOME/.local/share/nvim-data/mason/packages/powershell-editor-services")
-else
-  bundlepath = vim.fn.expand("$HOME/.local/share/nvim/mason/packages/powershell-editor-services")
-end
+bundlepath = data_path .. "/mason/packages/powershell-editor-services"
 
 local pwshpath = bundlepath .. "/PowerShellEditorServices/Start-EditorServices.ps1"
-local logpath = vim.fn.expand("$HOME/PSesLogs/pses.log")
-local sessionpath = vim.fn.expand("$HOME/PSesLogs/session.json")
+local logpath = vim.fn.stdpath("state") .. "/PSesLogs/pses.log"
+local sessionpath = vim.fn.stdpath("state") .. "/PSesLogs/session.json"
 
 return {
   "neovim/nvim-lspconfig",

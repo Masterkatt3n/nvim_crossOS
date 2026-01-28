@@ -94,6 +94,8 @@ This may evolve, but the guiding rule is:
 
 One file = one responsibility.
 
+---
+
 ## ⚠️ Status
 
 This is not a “finished” config, but everything here does work.
@@ -111,6 +113,28 @@ Expect:
 - rewrites when something becomes clearer
 
 That’s by design.
+
+---
+
+## Installation (try-it-as-is)
+
+This config assumes Neovim ≥ 0.10 and uses Lazy.nvim.
+
+### Unix / WSL
+
+```sh
+git clone https://github.com/Masterkatt3n/nvim_crossOS ~/.config/nvim
+```
+
+### Windows (PowerShell)
+
+```powershell
+git clone https://github.com/Masterkatt3n/nvim_crossOS $env:USERPROFILE\.config\nvim
+```
+
+- On first start, Lazy.nvim will install plugins automatically.
+
+---
 
 ## 🧩 Inspiration & References
 
