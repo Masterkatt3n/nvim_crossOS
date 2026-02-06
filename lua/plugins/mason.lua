@@ -7,11 +7,11 @@ return {
     require("mason").setup()
     require("mason-tool-installer").setup({
       ensure_installed = {
+        "shfmt",
         "prettier",
         "eslint_d",
         "shellcheck",
-        "shfmt",
-        "xmlformatter",
+        -- "xmlformatter",
         -- "tree-sitter-cli", -- If not local, uncomment
         -- "stylua", -- ..same thing for this one
       },

@@ -45,24 +45,24 @@ return {
     }
 
     -- Attach it to filetypes
+    opts.formatters_by_ft.fish = {}
+    opts.formatters_by_ft.sh = { "shfmt" }
     opts.formatters_by_ft.javascript = { "prettier" }
     opts.formatters_by_ft.typescript = { "prettier" }
     opts.formatters_by_ft.javascriptreact = { "prettier" }
     opts.formatters_by_ft.typescriptreact = { "prettier" }
+    --  opts.formatters_by_ft.xml = { "xmlformat" }
+    opts.formatters_by_ft.markdown = { "prettier" }
     opts.formatters_by_ft.css = { "prettier" }
     opts.formatters_by_ft.html = { "prettier" }
     opts.formatters_by_ft.json = { "prettier" }
     opts.formatters_by_ft.yaml = { "prettier" }
-    opts.formatters_by_ft.markdown = { "prettier" }
     opts.formatters_by_ft.sh = { "shfmt" }
-    opts.formatters_by_ft.bash = { "shfmt" }
     opts.formatters_by_ft.lua = { "stylua" }
-    opts.formatters_by_ft.python = { "ruff_fix", "ruff_format", "ruff_organize_imports" }
-    opts.formatters_by_ft.xml = { "xmlformat" }
-    opts.formatters_by_ft.fish = {}
-    opts.formatters_by_ft.powershell = { "powershell" }
     opts.formatters_by_ft.ps1 = { "powershell" }
     opts.formatters_by_ft.psm1 = { "powershell" }
+    opts.formatters_by_ft.powershell = { "powershell" }
+    opts.formatters_by_ft.python = { "ruff_fix", "ruff_format", "ruff_organize_imports" }
   end,
 
   keys = {
