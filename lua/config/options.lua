@@ -3,6 +3,7 @@ local is_win = vim.fn.has("win32") == 1
 local o = vim.opt
 
 vim.g.lazyvim_rust_diagnostics = "rust-analyzer"
+vim.g.lazyvim_blink_main = false
 
 -- vim.lsp.log.set_level(vim.log.levels.ERROR)
 -- keep or, if your build supports it:
@@ -56,7 +57,7 @@ o.ruler = true
 o.inccommand = "split"
 
 -- Performance
-o.ttimeoutlen = is_win and 0 or 25 -- If something funky happens on startup in linux, like a key getting "hit".. try raise the value
+o.ttimeoutlen = is_win and 0 or 30 -- If something funky happens on startup in linux, like a key getting "hit".. try raise the value
 o.updatetime = 300
 
 -- Shell -- If you need to force Windows into running whichever, these works

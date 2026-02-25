@@ -22,9 +22,9 @@ return {
       enabled = true,
       cmdline = true,
       groups = {
-        "BlinkPairsOrange",
-        "BlinkPairsPurple",
-        "BlinkPairsBlue",
+        -- "BlinkPairsOrange",
+        "BlinkPairsCyan",
+        "BlinkPairsGreen",
       },
       unmatched_group = "BlinkPairsUnmatched",
 
