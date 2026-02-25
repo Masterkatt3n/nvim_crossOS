@@ -11,9 +11,8 @@ return {
         "prettier",
         "eslint_d",
         "shellcheck",
-        -- "xmlformatter",
-        -- "tree-sitter-cli", -- If not local, uncomment
-        -- "stylua", -- ..same thing for this one
+        --   "tree-sitter-cli",
+        --   "stylua",
       },
       auto_update = false,
       run_on_start = true,

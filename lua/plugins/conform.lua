@@ -51,7 +51,6 @@ return {
     opts.formatters_by_ft.typescript = { "prettier" }
     opts.formatters_by_ft.javascriptreact = { "prettier" }
     opts.formatters_by_ft.typescriptreact = { "prettier" }
-    --  opts.formatters_by_ft.xml = { "xmlformat" }
     opts.formatters_by_ft.markdown = { "prettier" }
     opts.formatters_by_ft.css = { "prettier" }
     opts.formatters_by_ft.html = { "prettier" }

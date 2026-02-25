@@ -31,6 +31,9 @@ function M.get()
   end
 
   -- Common manual extensions
+  capabilities.textDocument = capabilities.textDocument or {}
+  capabilities.textDocument.completion = capabilities.textDocument.completion or {}
+  capabilities.textDocument.completion.completionItem = capabilities.textDocument.completion.completionItem or {}
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,

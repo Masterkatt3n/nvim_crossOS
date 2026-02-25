@@ -1,3 +1,0 @@
-# "~/.config/nvim/rust-toolchain.toml"
-[toolchain]
-channel = "nightly"
