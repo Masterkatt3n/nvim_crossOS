@@ -23,17 +23,21 @@ return {
     keymap = { preset = "super-tab" },
     appearance = { use_nvim_cmp_as_default = false, nerd_font_variant = "mono" },
     completion = {
-      accept = { auto_brackets = { enabled = true } },
-      menu = {
-        draw = {
-          treesitter = { "lsp" },
+      list = {
+        selection = {
+          preselect = function()
+            return not require("blink.cmp").snippet_active({ direction = 1 })
+          end,
         },
       },
-      documentation = {
-        auto_show = false,
-      },
+      accept = { auto_brackets = { enabled = true } },
+
+      menu = { draw = { treesitter = { "lsp" } } },
+
+      documentation = { auto_show = false },
     },
   },
+
   opts_extend = {
     "sources.completion.enabled_providers",
     "sources.compat",

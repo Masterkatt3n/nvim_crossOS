@@ -75,13 +75,13 @@ return {
               useCorrectCasing = true,
             },
             scriptAnalysis = {
-              enable = true,
               settingsPath = nil,
               diagnosticSeverity = {
                 Information = "Information",
                 Warning = "Warning",
                 Error = "Error",
               },
+              enable = true,
             },
           },
         },
