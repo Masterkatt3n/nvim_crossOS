@@ -157,7 +157,7 @@ It will:
 
 - Install `nala` (APT frontend)
 
-- Perfom a full system upgrade
+- Perform a full system upgrade
 
 - Install toolchains:
   - LLVM/clang (v20)
@@ -181,7 +181,7 @@ It will:
 
 - Purges Neovim user state (`cache`, `data`, `config`)
 
-- Clone this configuration
+- Clone this configuration repository
 - Clone and build Neovim from source:
   - `RelWithDebInfo`
   - Ninja backend
@@ -208,13 +208,14 @@ This script:
 
 It is intended for:
 
-- WSL Ubuntu environments
+- WSL Ubuntu environments (22.04+)
 
 - Users who understand what a clean rebuild implies
 
 - Reproducible dev setups
 
 > The script is intentionally opinionated and not designed as a general-purpose installer.
+>
 > If you just want the configuration, cloning the repo is sufficient.
 
 ---
