@@ -1,6 +1,6 @@
 # nvim_crossOS
 
-A **cross-platform Neovim configuration** designed to run unmodified on  
+A **cross-platform Neovim configuration** designed to run unmodified on
 **Windows, WSL, and Linux**, with a strong focus on:
 
 - predictable behavior across OSes
@@ -14,24 +14,24 @@ This config is actively evolving and intentionally opinionated.
 
 ## ✨ Goals
 
-- **Single config, multiple platforms**  
+- **Single config, multiple platforms**
   No OS-specific forks or manual edits.
 
-- **Explicit over implicit**  
+- **Explicit over implicit**
   If something is enabled, it’s done deliberately.
 
-- **LSP-first editing**  
-  Language servers, diagnostics, and tooling are configured carefully  
+- **LSP-first editing**
+  Language servers, diagnostics, and tooling are configured carefully
   (and not blindly copy-pasted).
 
-- **Noise-free diagnostics**  
+- **Noise-free diagnostics**
   `lua_ls` is tuned to be _useful_, not naggy.
 
-- **Composable setup**  
+- **Composable setup**
   Pieces are meant to be reused, replaced, or removed without collapse.
 
-- **PowerShell (PSES)**  
-  Content around the PowerShell LSP was somewhat scarce or outdated when I started.  
+- **PowerShell (`PSES`)**
+  Content around the `PowerShell` LSP was somewhat scarce or outdated when I started.
   I do most of my work in PowerShell, so these settings may be useful to others.
 
 ---
@@ -39,10 +39,12 @@ This config is actively evolving and intentionally opinionated.
 ## 🖥 Supported Platforms
 
 - Windows 11 (native Neovim)
-- WSL (Ubuntu)
-- Linux (tested on Ubuntu-based systems)
+- WSL (Ubuntu 22.04+)
+- Native Ubuntu 22.04+
 
 > The same config is expected to work on all of the above without modification.
+> The bootstrap script has been tested on both WSL and native Ubuntu.
+> Other Debian-based systems will likely work but are not guaranteed.
 
 ---
 
@@ -133,6 +135,87 @@ git clone https://github.com/Masterkatt3n/nvim_crossOS $env:USERPROFILE\.config\
 ```
 
 - On first start, Lazy.nvim will install plugins automatically.
+
+---
+
+## 🔧 Optional: Full Clean WSL Build (LLVM + Ninja + Nightly Rust)
+
+For users who want a fully reproducible Neovim build from source
+(using LLVM 20, Ninja, Rust nightly, and a clean XDG state), a bootstrap script is provided:
+
+```bash
+scripts/bootstrap-buildnvim.sh
+```
+
+### What it does
+
+The script performs a deterministic rebuild of Neovim and its supporting toolchain.
+
+It will:
+
+- Ensure the `universe` repository is enabled
+
+- Install `nala` (APT frontend)
+
+- Perfom a full system upgrade
+
+- Install toolchains:
+  - LLVM/clang (v20)
+  - Rust (nightly default + stable fallback)
+  - Node.js (LTS)
+
+- Install native build dependencies (cmake, ninja, etc.)
+
+- Install Cargo CLI tools:
+  - `ripgrep`
+  - `fd`
+  - `ast-grep`
+  - `stylua`
+  - `tree-sitter-cli`
+
+- Install `lazygit`
+
+- Ensure `~/.cargo` and `~/.local/bin` are properly added to `PATH`
+
+- Backs up existing `~/.config/nvim`
+
+- Purges Neovim user state (`cache`, `data`, `config`)
+
+- Clone this configuration
+- Clone and build Neovim from source:
+  - `RelWithDebInfo`
+  - Ninja backend
+  - LLVM toolchain
+  - LLD linker
+
+- Package and install Neovim as `.deb`
+
+- Installs JetBrainsMono Nerd Font
+
+- Installs PowerShell (`pwsh`)
+
+- Installs optional Neovim Python and Node integrations
+
+### ⚠️ Warning
+
+This script:
+
+- Performs a full system upgrade
+
+- Removes previous Neovim installs
+
+- Purges XDG Neovim directories
+
+It is intended for:
+
+- WSL Ubuntu environments
+
+- Users who understand what a clean rebuild implies
+
+- Reproducible dev setups
+
+> The script is intentionally opinionated and not designed as a general-purpose installer.
+> If you just want the configuration, cloning the repo is sufficient.
 
 ---
 

@@ -13,6 +13,7 @@ return {
       end
       return "⚠️ " .. diag[1].message:gsub("\n", " "):sub(1, 80)
     end
+
     local function lsp_status()
       local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
       if #buf_clients == 0 then
@@ -24,9 +25,11 @@ return {
       end
       return " " .. table.concat(names, ", ")
     end
+
     local function clock()
       return os.date("%H:%M:%S")
     end
+
     return {
       options = { theme = "tokyodark" },
       sections = {
