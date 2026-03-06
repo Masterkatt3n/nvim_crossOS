@@ -46,7 +46,7 @@ return {
       marksman = with_defaults({ filetypes = { "markdown" } }),
       bashls = with_defaults({
         autostart = false,
-        settings = { bashIde = { shellcheckPath = "" } },
+        settings = { bashIde = { logLevel = "error", shellcheckPath = "" } },
       }),
       powershell_es = with_defaults({
         bundle_path = bundlepath,

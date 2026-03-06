@@ -58,3 +58,9 @@ require("lazy").setup({
     },
   },
 })
+-- Uncomment if to run through pwsh, but cmd is faster
+-- vim.schedule(function()
+--   if LazyVim and LazyVim.terminal then
+--     LazyVim.terminal.setup("pwsh")
+--   end
+-- end)
