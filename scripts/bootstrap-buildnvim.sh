@@ -185,7 +185,7 @@ echo "[i] Installing Cargo CLI tools..." # Enhancing the compiler, ensuring the 
 if command -v "$CLANG_BIN" >/dev/null 2>&1; then
   export CC="clang-$LLVM_VERSION"
   export CXX="clang++-$LLVM_VERSION"
-  export LD="ld.lld-$LLVM_VERSION"
+  export LD="ld.lld"
 elif command -v clang-18 >/dev/null 2>&1; then
   export CC=clang-18
   export CXX=clang++-18
@@ -535,13 +535,22 @@ install_powershell
 
 # Extra Optionals, fully enable(silence warningflags) neovim
 # add deps for markdown-preview
-echo "[i] Installing pynvim, pylatexenc and npm neovim..."
+VenvDir="$HOME/.venv"
+echo "[i] Checking for present venv..."
+if [[ ! -e $VenvDir ]]; then
+  echo "[i] Venv not found, creating and installing optionals..."
+  mkdir -p "$VenvDir"
+  python3 -m venv "$VenvDir"
 
-pip3 install --user --upgrade pynvim
-pip3 install --user --upgrade pylatexenc
-sudo npm install -g neovim
+  echo "[*] $VenvDir created, installing tools"
+  "$VenvDir/bin/pip3" install pynvim
+  "$VenvDir/bin/pip3" install pylatexenc
+  sudo npm install -g neovim
 
-echo "[✓] done installing extra optionals."
+  echo "[✓] Venv created, extra optionals installed"
+else
+  echo "[✓] Path present, assuming already done"
+fi
 
 # - Process summary
 SCRIPT_END_TIME=$(date +%s)
