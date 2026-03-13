@@ -22,20 +22,24 @@ return {
   opts = {
     keymap = { preset = "super-tab" },
     appearance = { use_nvim_cmp_as_default = false, nerd_font_variant = "mono" },
+
     completion = {
+      ghost_text = { enabled = true },
+      menu = { auto_show = true, draw = { treesitter = { "lsp" } } },
+      documentation = { auto_show = false },
       list = {
         selection = {
-          preselect = function()
+          ---@diagnostic disable-next-line: unused-local
+          preselect = function(_ctx)
             return not require("blink.cmp").snippet_active({ direction = 1 })
           end,
         },
       },
       accept = { auto_brackets = { enabled = true } },
-
-      menu = { draw = { treesitter = { "lsp" } } },
-
-      documentation = { auto_show = false },
     },
+
+    sources = { default = { "lsp", "path", "snippets", "buffer" } },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
   },
 
   opts_extend = {
@@ -43,6 +47,4 @@ return {
     "sources.compat",
     "sources.default",
   },
-  sources = { default = { "lsp", "path", "snippets", "buffer" } },
-  fuzzy = { implementation = "prefer_rust_with_warning" },
 }

@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = "*.sh",
+  pattern = { "*.sh", "*.bash", "*.zsh" },
   callback = function()
     vim.opt_local.fileformat = "unix"
   end,
