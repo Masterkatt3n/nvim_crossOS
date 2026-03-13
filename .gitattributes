@@ -1,0 +1,17 @@
+# Default: normalize text files
+* text=auto
+
+# Shell scripts must stay LF
+*.sh text eol=lf
+
+# Lua files should also stay LF
+*.lua text eol=lf
+
+# Config files
+*.toml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+
+# Windows scripts if you ever add them
+*.ps1 text eol=crlf
+*.bat text eol=crlf
