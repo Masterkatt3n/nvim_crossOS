@@ -3,7 +3,6 @@ return {
   ---@type LazyPluginSpec
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  dependencies = { "tiagovla/tokyodark.nvim" },
   opts = function()
     local function current_line_diagnostic()
       local line = vim.api.nvim_win_get_cursor(0)[1] - 1
@@ -14,7 +13,7 @@ return {
       return "⚠️ " .. diag[1].message:gsub("\n", " "):sub(1, 80)
     end
 
-    local function lsp_status()
+    local function lsp_status() -- Always show LSP state
       local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
       if #buf_clients == 0 then
         return "LSP: none"
@@ -31,7 +30,7 @@ return {
     end
 
     return {
-      options = { theme = "tokyodark" },
+      options = { theme = "auto" },
       sections = {
         lualine_a = { clock, "mode" },
         lualine_b = { "branch", "diff", "diagnostics" },
