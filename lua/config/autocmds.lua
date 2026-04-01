@@ -1,3 +1,5 @@
+-- "/nvim/lua/config/autocmds.lua"
+
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = { "*.sh", "*.bash", "*.zsh" },
   callback = function()

@@ -4,7 +4,9 @@ return {
   dependencies = { "WhoIsSethDaniel/mason-tool-installer.nvim" },
   event = "LspAttach",
   config = function()
-    require("mason").setup()
+    require("mason").setup({
+      PATH = "prepend",
+    })
     require("mason-tool-installer").setup({
       ensure_installed = {
         "shfmt",

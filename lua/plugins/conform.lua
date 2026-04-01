@@ -47,6 +47,7 @@ return {
     -- Attach it to filetypes
     opts.formatters_by_ft.fish = {}
     opts.formatters_by_ft.sh = { "shfmt" }
+    opts.formatters_by_ft.bash = { "shfmt" }
     opts.formatters_by_ft.javascript = { "prettier" }
     opts.formatters_by_ft.typescript = { "prettier" }
     opts.formatters_by_ft.javascriptreact = { "prettier" }
@@ -56,7 +57,6 @@ return {
     opts.formatters_by_ft.html = { "prettier" }
     opts.formatters_by_ft.json = { "prettier" }
     opts.formatters_by_ft.yaml = { "prettier" }
-    opts.formatters_by_ft.sh = { "shfmt" }
     opts.formatters_by_ft.lua = { "stylua" }
     opts.formatters_by_ft.ps1 = { "powershell" }
     opts.formatters_by_ft.psm1 = { "powershell" }

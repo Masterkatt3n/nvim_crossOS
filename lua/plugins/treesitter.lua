@@ -10,7 +10,7 @@ return {
     dependencies = {
       {
         "HiPhish/rainbow-delimiters.nvim",
-        enabled = false,
+        enabled = true,
         event = "BufReadPost",
         config = function()
           vim.g.rainbow_delimiters = {

@@ -3,6 +3,7 @@ return {
   ---@type LazyPluginSpec
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
+
   opts = function()
     local function current_line_diagnostic()
       local line = vim.api.nvim_win_get_cursor(0)[1] - 1

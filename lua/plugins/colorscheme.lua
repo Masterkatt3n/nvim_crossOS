@@ -39,7 +39,7 @@ return {
       -- Styling for syntax groups
       -- options: "italic", "bold", "underline", "none"
       code_style = {
-        comments = "italic",
+        comments = "none",
         keywords = "none",
         functions = "none",
         strings = "none",

@@ -36,9 +36,9 @@ o.clipboard = "unnamedplus"
 
 -- Appearance
 o.termguicolors = true
-o.syntax = "on"
 o.title = true
 o.encoding = "utf-8"
+o.signcolumn = "yes:1"
 
 -- Searching / completion
 o.completeopt = "menuone,noinsert,noselect"
@@ -57,10 +57,11 @@ o.ruler = true
 o.inccommand = "split"
 
 -- Performance
-o.ttimeoutlen = is_win and 0 or 30 -- If something funky happens on startup in linux, like a key getting "hit".. try raise the value
+o.ttimeoutlen = is_win and 0 or 35 -- If something funky happens on startup in linux, like a key getting "hit".. try raise the value
 o.updatetime = 300
 
 -- Shell -- If you need to force Windows into running whichever, these works
+
 --if is_win then
 --  o.shell = "pwsh.exe"
 --  o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command $PSStyle.OutputRendering = 'PlainText';"
