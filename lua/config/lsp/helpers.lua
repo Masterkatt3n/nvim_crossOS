@@ -17,17 +17,6 @@ function M.with_defaults(config)
       client.server_capabilities.hoverProvider = false
       client.server_capabilities.semanticTokensProvider = nil
     end
-
-    -- Snacks integration (optional, safe)
-    local ok, snacks_lsp = pcall(require, "snacks.util.lsp")
-    if ok and snacks_lsp.on then
-      snacks_lsp.on(client, function(arg)
-        local captable = type(arg) == "table" and arg or client.server_capabilities
-        if captable and captable.semanticTokensProvider then
-          vim.notify(("Semantic tokens enabled for %s"):format(client.name), vim.log.levels.DEBUG)
-        end
-      end)
-    end
   end
 
   return config
