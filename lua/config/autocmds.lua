@@ -1,5 +1,6 @@
 -- "/nvim/lua/config/autocmds.lua"
 
+-- fix to not mess up unix code in Windows
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = { "*.sh", "*.bash", "*.zsh" },
   callback = function()
@@ -17,6 +18,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- LSP QoL
 vim.api.nvim_create_user_command("LspCaps", function()
   local clients = vim.lsp.get_clients({ bufnr = 0 })
   if #clients == 0 then
@@ -30,6 +32,7 @@ vim.api.nvim_create_user_command("LspCaps", function()
   end
 end, {})
 
+-- LSP QoL
 vim.api.nvim_create_user_command("LspSem", function()
   local clients = vim.lsp.get_clients({ bufnr = 0 })
   if #clients == 0 then

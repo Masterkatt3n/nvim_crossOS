@@ -14,13 +14,10 @@ return {
         event = "BufReadPost",
         config = function()
           vim.g.rainbow_delimiters = {
-            strategy = {
-              [""] = require("rainbow-delimiters").strategy["global"],
-            },
             highlight = {
               "RainbowDelimiterRed",
-              "RainbowDelimiterYellow",
               "RainbowDelimiterBlue",
+              "RainbowDelimiterYellow",
               "RainbowDelimiterOrange",
               "RainbowDelimiterViolet",
               --  "RainbowDelimiterCyan",
@@ -33,23 +30,23 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
       vim.list_extend(opts.ensure_installed, {
-        "comment",
         "sql",
-        "json",
-        "javascript",
-        "typescript",
+        "xml",
+        "lua",
+        "css",
         "tsx",
+        "json",
         "yaml",
         "html",
-        "css",
         "bash",
-        "lua",
+        "query",
+        "regex",
+        "python",
+        "comment",
         "gitignore",
         "powershell",
-        "regex",
-        "xml",
-        "python",
-        "query",
+        "javascript",
+        "typescript",
       })
       opts.matchup = {
         enable = true,
