@@ -39,11 +39,13 @@ This config is actively evolving and intentionally opinionated.
 ## 🖥 Supported Platforms
 
 - Windows 11 (native Neovim)
-- WSL (Ubuntu 22.04+)
-- Native Ubuntu 22.04+
+- Ubuntu 24.04 LTS (WSL and native)
+- Ubuntu 22.04 LTS (WSL and native)
 
 > The same config is expected to work on all of the above without modification.
-> The bootstrap script has been tested on both WSL and native Ubuntu.
+> Ubuntu 20.04 LTS also worked with minor adjustments, but it is not a target platform for this script and Nala does not support it.
+
+> The script is intentionally opinionated and follows current Ubuntu LTS releases rather than maintaining compatibility with older releases indefinitely. The bootstrap script has been tested on both WSL and native Ubuntu.
 > Other Debian-based systems will likely work but are not guaranteed.
 
 ---
@@ -74,22 +76,43 @@ If something looks verbose, it’s usually intentional.
 ## 🗂 Directory Layout (high level)
 
 ```text
-lua/
-├── config/
-│   ├── lsp/
-│   │   ├── capabilities.lua
-│   │   ├── helpers.lua
-│   │   └── semantic_cmp.lua
-│   ├── diagnostics.lua
-│   ├── keymaps.lua
-│   ├── options.lua
-│   └── lazy.lua
-├── plugins/
-│   ├── lsp.lua
-│   ├── lua.lua
-│   ├── lualine.lua
-│   └── ...
-└── types/
+.
+├── lua/
+│   ├── config/            # Core editor behavior (no plugins)
+│   │   ├── ftypes/        # Filetype detection / overrides
+│   │   ├── lsp/           # LSP logic (capabilities, helpers, semantics)
+│   │   ├── tracker/       # Small internal helpers / experiments
+│   │   ├── autocmds.lua   # Autocommands
+│   │   ├── diagnostics.lua# Diagnostic config
+│   │   ├── keymaps.lua    # Keybindings
+│   │   ├── lazy.lua       # Plugin bootstrap (lazy.nvim setup)
+│   │   └── options.lua    # vim.opt + globals
+│   │
+│   ├── plugins/           # Plugin specs (1 file = 1 plugin)
+│   │   ├── blink.lua
+│   │   ├── blinkPairs.lua
+│   │   ├── colorscheme.lua
+│   │   ├── conform.lua
+│   │   ├── lint.lua
+│   │   ├── lsp.lua
+│   │   ├── lua.lua
+│   │   ├── lualine.lua
+│   │   ├── mason.lua
+│   │   ├── matchUp.lua
+│   │   ├── mini-pairsOff.lua
+│   │   └── treesitter.lua
+│   │
+│   └── types/             # Type hints / annotations (dev UX)
+│       └── lazy.lua
+│
+├── scripts/               # External tooling / reproducible setup
+│   └── bootstrap-buildnvim.sh
+│
+├── init.lua               # Entry point
+├── stylua.toml            # Formatting rules
+├── pyproject.toml         # Python tooling (optional integration)
+├── README.md
+└── LICENSE
 ```
 
 This may evolve, but the guiding rule is:
@@ -208,7 +231,7 @@ This script:
 
 It is intended for:
 
-- WSL Ubuntu environments (22.04+)
+- Ubuntu environments
 
 - Users who understand what a clean rebuild implies
 
