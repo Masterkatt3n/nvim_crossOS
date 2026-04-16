@@ -543,8 +543,11 @@ if [[ ! -e $VenvDir ]]; then
   python3 -m venv "$VenvDir"
 
   echo "[*] $VenvDir created, installing tools"
-  "$VenvDir/bin/pip3" install pynvim
-  "$VenvDir/bin/pip3" install pylatexenc
+
+  # Ignore user/system pip config to ensure reproducible installs
+  env PIP_CONFIG_FILE=/dev/null "$VenvDir/bin/python3" -m pip install --upgrade pip
+  env PIP_CONFIG_FILE=/dev/null "$VenvDir/bin/python3" -m pip install --no-user pynvim pylatexenc
+
   sudo npm install -g neovim
 
   echo "[✓] Venv created, extra optionals installed"
